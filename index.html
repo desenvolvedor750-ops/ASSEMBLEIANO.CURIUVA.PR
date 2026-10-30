@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assembleia de Deus Missão Curiúva - PR: um lugar de adoração, fé e comunhão. Confira os horários dos cultos e onde estamos.">
+    <meta name="theme-color" content="#29231f">
+    <title>Assembleia de Deus Missão Curiúva - PR | Adoração, Fé e Comunhão</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #29231f;
+            --muted: #71655c;
+            --orange: #d96832;
+            --orange-dark: #ad4825;
+            --cream: #fffaf3;
+            --paper: #ffffff;
+            --line: #eee3d7;
+            --shadow: 0 18px 48px rgba(48, 34, 24, 0.09);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible {
+            border-radius: 4px;
+            outline: 3px solid var(--orange);
+            outline-offset: 4px;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 16px;
+            z-index: 10;
+            padding: 10px 14px;
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        .topbar {
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            min-height: 132px;
+            padding: 20px 0;
+        }
+
+        .brand-logo {
+            display: block;
+            width: 198px;
+            height: 84px;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
+
+        .brand-copy {
+            border-left: 1px solid var(--line);
+            padding-left: 24px;
+        }
+
+        .eyebrow {
+            color: var(--orange-dark);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        .brand h1 {
+            margin-top: 3px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            line-height: 1.2;
+        }
+
+        .brand p:last-child {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        nav {
+            background: var(--ink);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 14px 20px;
+            color: #fffaf3;
+            font-size: 0.92rem;
+            font-weight: 650;
+            text-decoration: none;
+            transition: background-color 160ms ease, color 160ms ease;
+        }
+
+        .nav-links a:hover {
+            background: #3a302a;
+            color: #ffb078;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(76px, 12vw, 142px) 20px;
+            background:
+                radial-gradient(ellipse at 82% 10%, rgba(217, 104, 50, 0.28), transparent 34%),
+                linear-gradient(120deg, #29231f 0%, #382a22 62%, #533222 100%);
+            color: var(--paper);
+            text-align: center;
+        }
+
+        .hero::after {
+            position: absolute;
+            right: -120px;
+            bottom: -240px;
+            width: 480px;
+            height: 480px;
+            border: 1px solid rgba(255, 250, 243, 0.12);
+            border-radius: 50%;
+            content: "";
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .hero .eyebrow {
+            color: #ffb078;
+        }
+
+        .hero h2 {
+            margin: 14px 0 18px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.08;
+        }
+
+        .hero p:not(.eyebrow) {
+            max-width: 580px;
+            margin: 0 auto;
+            color: #f0e5da;
+            font-size: clamp(1rem, 2.4vw, 1.16rem);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            margin-top: 30px;
+            padding: 12px 22px;
+            border: 1px solid var(--orange);
+            border-radius: 6px;
+            background: var(--orange);
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 750;
+            text-decoration: none;
+            transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: #ef8955;
+            background: #ef8955;
+        }
+
+        section.content-section {
+            padding: clamp(58px, 8vw, 88px) 0;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin: 0 auto 34px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin-top: 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.2;
+        }
+
+        .section-heading p:last-child {
+            margin-top: 10px;
+            color: var(--muted);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            min-height: 208px;
+            padding: 28px 24px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--paper);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 48px rgba(48, 34, 24, 0.13);
+        }
+
+        .service-day {
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+        }
+
+        .service-card h3 {
+            margin-top: 7px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+        }
+
+        .service-time {
+            margin: 10px 0 4px;
+            color: var(--orange-dark);
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .location-section {
+            background: #f5ede3;
+        }
+
+        .location-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            max-width: 860px;
+            margin: 0 auto;
+            border: 1px solid #e8d8c8;
+            border-radius: 12px;
+            background: var(--paper);
+            box-shadow: var(--shadow);
+        }
+
+        .location-copy {
+            padding: clamp(28px, 5vw, 48px);
+        }
+
+        .location-copy h3 {
+            margin: 8px 0 16px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.65rem;
+            line-height: 1.2;
+        }
+
+        .location-copy address {
+            color: var(--muted);
+            font-style: normal;
+            line-height: 1.9;
+        }
+
+        .location-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+            padding: 28px;
+            background:
+                radial-gradient(circle at 75% 30%, rgba(255, 176, 120, 0.3), transparent 35%),
+                linear-gradient(140deg, #392d26, #754125);
+            color: #fffaf3;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.35rem, 3vw, 1.8rem);
+            text-align: center;
+        }
+
+        footer {
+            padding: 34px 20px;
+            background: var(--ink);
+            color: #fffaf3;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.25rem;
+        }
+
+        footer p {
+            margin-top: 6px;
+            color: #d8c9bc;
+            font-size: 0.92rem;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+            color: #b6a79b;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 720px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            .service-card {
+                min-height: 0;
+            }
+
+            .location-card {
+                grid-template-columns: 1fr;
+            }
+
+            .location-note {
+                min-height: 150px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .brand {
+                flex-direction: column;
+                gap: 12px;
+                padding: 18px 0;
+                text-align: center;
+            }
+
+            .brand-logo {
+                width: 178px;
+                height: auto;
+            }
+
+            .brand-copy {
+                border-left: 0;
+                padding-left: 0;
+            }
+
+            .nav-links {
+                gap: 0;
+            }
+
+            .nav-links a {
+                padding: 13px 12px;
+                font-size: 0.86rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topbar">
+        <div class="container brand">
+            <img class="brand-logo" src="./logo-assembleia.jpeg" alt="Logotipo AD da Assembleia de Deus Missão Curiúva - PR" width="198" height="84">
+            <div class="brand-copy">
+                <p class="eyebrow">Igreja Evangélica</p>
+                <h1>Assembleia de Deus Missão Curiúva - PR</h1>
+                <p>Adoração, fé e comunhão</p>
+            </div>
+        </div>
+    </header>
+
+    <nav aria-label="Navegação principal">
+        <ul class="container nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#cultos">Cultos</a></li>
+            <li><a href="#endereco">Endereço</a></li>
+        </ul>
+    </nav>
+
+    <main id="conteudo">
+        <section class="hero" id="inicio" aria-labelledby="welcome-title">
+            <div class="hero-content">
+                <p class="eyebrow">Um lugar para estar junto</p>
+                <h2 id="welcome-title">Seja bem-vindo!</h2>
+                <p>A casa de Deus é lugar de oração, adoração e comunhão. Venha participar conosco!</p>
+                <a class="button" href="#cultos">Confira os horários dos cultos</a>
+            </div>
+        </section>
+
+        <section class="content-section" id="cultos" aria-labelledby="services-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Esperamos por você</p>
+                    <h2 id="services-title">Horários dos cultos</h2>
+                    <p>Reúna-se conosco para momentos de louvor, adoração e comunhão.</p>
+                </div>
+
+                <div class="service-grid">
+                    <article class="service-card">
+                        <p class="service-day">QUINTA-FEIRA</p>
+                        <h3>Horário do culto</h3>
+                        <p class="service-time">19h30</p>
+                    </article>
+                    <article class="service-card">
+                        <p class="service-day">SÁBADO</p>
+                        <h3>Horário do culto</h3>
+                        <p class="service-time">19h30</p>
+                    </article>
+                    <article class="service-card">
+                        <p class="service-day">DOMINGO</p>
+                        <h3>Horário do culto</h3>
+                        <p class="service-time">19h00</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section location-section" id="endereco" aria-labelledby="location-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Venha nos visitar</p>
+                    <h2 id="location-title">Onde estamos</h2>
+                </div>
+                <div class="location-card">
+                    <div class="location-copy">
+                        <p class="eyebrow">Nosso endereço</p>
+                        <h3>Assembleia de Deus Missão Curiúva - PR</h3>
+                        <address>
+                            Avenida Antônio Cunha<br>
+                            Curiúva - PR<br>
+                            Ao lado do Posto Larine
+                        </address>
+                    </div>
+                    <div class="location-note" aria-hidden="true">Será uma alegria receber você.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Assembleia de Deus Missão Curiúva - PR</h2>
+        <p>Uma igreja comprometida com a Palavra de Deus.</p>
+        <p class="copyright">© 2026 — Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
